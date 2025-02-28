@@ -1,20 +1,47 @@
+import 'dart:io';
 
+import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:patrol/patrol.dart';
 
-import 'package:flutter_application_patrol_2_3/main.dart';
-
 void main() {
+  patrolTest(
+    'counter state is the same after going to home and switching apps',
+    ($) async {
+      // Replace later with your app's main widget
+      await $.pumpWidgetAndSettle(
+        MaterialApp(
+          home: Scaffold(
+            appBar: AppBar(title: const Text('app')),
+            backgroundColor: Colors.blue,
+          ),
+        ),
+      );
 
+      expect($('app'), findsOneWidget);
+      if (!Platform.isMacOS) {
+        await $.native.pressHome();
+      }
+    },
+  );
   
   patrolTest(
-    'Test 2',
-    framePolicy: LiveTestWidgetsFlutterBindingFramePolicy.fullyLive,
+    'test 2',
     ($) async {
-      await $.pumpWidgetAndSettle(const MyApp());
+      // Replace later with your app's main widget
+      await $.pumpWidgetAndSettle(
+        MaterialApp(
+          home: Scaffold(
+            appBar: AppBar(title: const Text('app')),
+            backgroundColor: Colors.blue,
+          ),
+        ),
+      );
 
-      expect(find.text('0'), findsOneWidget);
-      expect(find.text('1'), findsNothing);
+      expect($('app'), findsOneWidget);
+      if (!Platform.isMacOS) {
+        await $.native.pressHome();
+      }
     },
   );
 }

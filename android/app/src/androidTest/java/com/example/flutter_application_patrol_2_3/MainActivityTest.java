@@ -1,4 +1,4 @@
-package com.example.flutter_application_patrol_2_3; 
+package com.example.flutter_application_patrol_2_3;
 
 import androidx.test.platform.app.InstrumentationRegistry;
 import org.junit.Test;
@@ -15,8 +15,7 @@ public class MainActivityTest {
         // replace "MainActivity.class" with "io.flutter.embedding.android.FlutterActivity.class" 
         // if in AndroidManifest.xml in manifest/application/activity you have
         //     android:name="io.flutter.embedding.android.FlutterActivity"
-        //instrumentation.setUp(MainActivity.class);
-        instrumentation.setUp(io.flutter.embedding.android.FlutterActivity.class);
+        instrumentation.setUp(MainActivity.class);
         instrumentation.waitForPatrolAppService();
         return instrumentation.listDartTests();
     }
