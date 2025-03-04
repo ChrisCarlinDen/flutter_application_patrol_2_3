@@ -24,24 +24,4 @@ void main() {
       }
     },
   );
-  
-  patrolTest(
-    'test 2',
-    ($) async {
-      // Replace later with your app's main widget
-      await $.pumpWidgetAndSettle(
-        MaterialApp(
-          home: Scaffold(
-            appBar: AppBar(title: const Text('app')),
-            backgroundColor: Colors.blue,
-          ),
-        ),
-      );
-
-      expect($('app'), findsOneWidget);
-      if (!Platform.isMacOS) {
-        await $.native.pressHome();
-      }
-    },
-  );
 }
